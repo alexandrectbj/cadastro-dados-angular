@@ -1,0 +1,59 @@
+<div class="main">
+  <form #form="ngForm" (ngSubmit)="enviar(form)">
+    <div class="inputs">
+      <label for="nome">Nome</label>
+      <input [ngModel]="user_edit?.nome" type="text" name="nome" />
+    </div>
+    <div class="inputs">
+      <label for="sobrenome">Sobrenome</label>
+      <input
+        [ngModel]="user_edit?.sobrenome"
+        type="text"
+        name="sobrenome"
+        
+      />
+    </div>
+    <div class="inputs">
+      <label for="email">E-mail</label>
+      <input [ngModel]="user_edit?.email" type="email" name="email" />
+    </div>
+    <div class="inputs">
+      <label for="nascimento">Data de Nascimento</label>
+      <input
+        [ngModel]="user_edit?.nascimento"
+        class="date"
+        type="date"
+        name="nascimento"
+      />
+    </div>
+
+    <input type="hidden" name="id" [ngModel]="user_edit?.id">
+
+    <div class="input_radio">
+      <h3>Sexo</h3>
+
+      <input type="radio" ngModel name="sexo" id="feminino" value="feminino" />
+      <label for="feminino">Feminino</label>
+
+      <input
+        type="radio"
+        ngModel
+        name="sexo"
+        id="masculino"
+        value="masculino"
+      />
+      <label for="masculino">Masculino</label>
+    </div>
+    <div class="inputs sexo hide">
+      <label for="senha"><strong>Sexo:</strong> {{ user_edit?.sexo }}</label>
+    </div>
+    <div class="inputs senha">
+      <label for="senha">Senha</label>
+      <input type="password" name="senha" ngModel />
+    </div>
+    <div class="inputs">
+      <button class="register_button" type="submit">Cadastrar</button>
+      <button class="update_button hide" type="submit">Atualizar</button>
+    </div>
+  </form>
+</div>

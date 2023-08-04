@@ -1,0 +1,29 @@
+<div class="main">
+  <div id="card">
+    <h2 id="nome">{{ user?.nome }} {{ user?.sobrenome }}</h2>
+    <div id="details">
+      <p><strong>ID:</strong> {{ user?.id }}</p>
+      <p><strong>E-mail:</strong> {{ user?.email }}</p>
+      <p id="data"><strong>Nascimento:</strong> {{ user?.nascimento | date: "dd/MM/YYYY"}}</p>
+      <p id="sexo"><strong>Sexo:</strong> {{ user?.sexo }}</p>
+    </div>
+
+    <div class="button">
+      <button id="edit" routerLink="/update/{{user?.id}}">Editar</button>
+      <button id="delete" (click)="popUp()">Remover</button>
+    </div>
+  </div>
+</div>
+
+<div class="overlay">
+  <div class="modal">
+    <h4>Deseja remover esse usuário?</h4>
+    <div id="modal_buttons">
+      <button id="button_modal" type="submit" (click)="deleteUser(user?.id)">Sim</button>
+
+      <button id="button_modal" (click)="popUp()">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<div class="teste"></div>
